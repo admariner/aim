@@ -1,0 +1,278 @@
+import React from 'react';
+
+import { IconChartDots, IconFileAnalytics, IconBox } from '@tabler/icons-react';
+
+import { PathEnum } from 'config/enums/routesEnum';
+import { ExplorersCatsEnum } from 'config/enums/explorersCatsEnum';
+import pageTitlesEnum from 'config/pageTitles/pageTitles';
+
+// const Runs = React.lazy(
+//   () => import(/* webpackChunkName: "runs" */ 'pages/Runs/RunsContainer'),
+// );
+// const RunDetail = React.lazy(
+//   () => import(/* webpackChunkName: "run" */ 'pages/RunDetail/RunDetail'),
+// );
+// const Experiment = React.lazy(
+//   () =>
+//     import(/* webpackChunkName: "experiment" */ 'pages/Experiment/Experiment'),
+// );
+// const Metrics = React.lazy(
+//   () =>
+//     import(
+//       /* webpackChunkName: "metrics" */ 'pages/Explorers/Metrics/MetricsContainer'
+//     ),
+// );
+// const Params = React.lazy(
+//   () =>
+//     import(
+//       /* webpackChunkName: "params" */ 'pages/Explorers/Params/ParamsContainer'
+//     ),
+// );
+// const Dashboard = React.lazy(
+//   () => import(/* webpackChunkName: "dashboard" */ 'pages/Dashboard/Dashboard'),
+// );
+// const TagsContainer = React.lazy(
+//   () => import(/* webpackChunkName: "tags" */ 'pages/Tags/TagsContainer'),
+// );
+// const Scatters = React.lazy(
+//   () =>
+//     import(
+//       /* webpackChunkName: "scatters" */ 'pages/Explorers/Scatters/ScattersContainer'
+//     ),
+// );
+// const ImagesExplore = React.lazy(
+//   () =>
+//     import(
+//       /* webpackChunkName: "images" */ 'pages/Explorers/ImagesExplore/ImagesExplore'
+//     ),
+// );
+// const Bookmarks = React.lazy(
+//   () => import(/* webpackChunkName: "bookmarks" */ 'pages/Explorers/Bookmarks'),
+// );
+// const Boards = React.lazy(
+//   () => import(/* webpackChunkName: "boards" */ 'pages/Boards/Boards'),
+// );
+// const Board = React.lazy(
+//   () => import(/* webpackChunkName: "board" */ 'pages/Board/BoardContainer'),
+// );
+
+const FiguresExplorer = React.lazy(
+  () =>
+    import(
+      /* webpackChunkName: "FiguresExplorer" */ 'pages/Explorers/FiguresExplorer'
+    ),
+);
+
+const AudiosExplorer = React.lazy(
+  () =>
+    import(
+      /* webpackChunkName: "AudiosExplorer" */ 'pages/Explorers/AudiosExplorer'
+    ),
+);
+const ImagesExplorer = React.lazy(
+  () =>
+    import(
+      /* webpackChunkName: "ImagesExplorer" */ 'pages/Explorers/ImagesExplorer'
+    ),
+);
+
+const MetricsExplorer = React.lazy(
+  () =>
+    import(
+      /* webpackChunkName: "MetricsExplorer" */ 'pages/Explorers/MetricsExplorer'
+    ),
+);
+
+const TextExplorer = React.lazy(
+  () =>
+    import(
+      /* webpackChunkName: "TextExplorer" */ 'pages/Explorers/TextExplorer'
+    ),
+);
+
+const PromptsExplorer = React.lazy(
+  () =>
+    import(
+      /* webpackChunkName: "PromptsExplorer" */ 'pages/Explorers/PromptsExplorer'
+    ),
+);
+
+const Explorers = React.lazy(
+  () => import(/* webpackChunkName: "Explorers" */ 'pages/Explorers'),
+);
+
+const Reports = React.lazy(
+  () => import(/* webpackChunkName: "Reports" */ 'pages/Reports'),
+);
+
+const Report = React.lazy(
+  () => import(/* webpackChunkName: "Report" */ 'pages/Report/Report'),
+);
+
+const Apps = React.lazy(
+  () => import(/* webpackChunkName: "Apps" */ 'pages/Apps/Apps'),
+);
+
+const App = React.lazy(
+  () => import(/* webpackChunkName: "App" */ 'pages/Apps/App'),
+);
+
+export interface IRoute {
+  path: PathEnum;
+  component:
+    | React.LazyExoticComponent<
+        () => React.FunctionComponentElement<React.ReactNode>
+      >
+    | any;
+  showInSidebar: boolean;
+  displayName: string | null;
+  icon?: React.ReactNode | string | null;
+  isExact?: boolean;
+  title: string;
+  color?: string;
+  status?: RouteStatusEnum;
+  description?: string;
+  category?: string;
+}
+
+export enum RouteStatusEnum {
+  NEW = 'new',
+  COMING_SOON = 'coming-soon',
+}
+
+export const explorersRoutes: { [key: string]: IRoute } = {
+  METRICS_EXPLORER: {
+    path: PathEnum.Metrics_Explorer,
+    component: MetricsExplorer,
+    showInSidebar: false,
+    icon: 'metrics',
+    displayName: 'Metrics',
+    description: 'Explore thousands of tracked metrics with Metrics Explorer.',
+    isExact: true,
+    title: pageTitlesEnum.METRICS_EXPLORER,
+    color: '#7A4CE0',
+    category: ExplorersCatsEnum.Trainings,
+  },
+  TEXT_EXPLORER: {
+    path: PathEnum.Text_Explorer,
+    component: TextExplorer,
+    showInSidebar: false,
+    icon: 'text',
+    displayName: 'Text',
+    description:
+      'Text Explorer offers visualization of text inputs and outputs in NLP-related experiments.',
+    isExact: true,
+    title: pageTitlesEnum.TEXT_EXPLORER,
+    color: '#E149A0',
+    category: ExplorersCatsEnum.Trainings,
+  },
+  PROMPTS_EXPLORER: {
+    path: PathEnum.Prompts_Explorer,
+    component: PromptsExplorer,
+    showInSidebar: false,
+    icon: 'text',
+    displayName: 'Prompts',
+    description:
+      'Prompts Explorer enables visualization of LLMs prompts and agents actions in AI systems execution.',
+    isExact: true,
+    title: pageTitlesEnum.PROMPTS_EXPLORER,
+    color: '#1473E6',
+    category: ExplorersCatsEnum.Prompts,
+  },
+  IMAGES_EXPLORER: {
+    path: PathEnum.Images_Explorer,
+    component: ImagesExplorer,
+    showInSidebar: false,
+    displayName: 'Images',
+    description:
+      'Images Explorer allows comparison of tracked images during training and evaluation.',
+    icon: 'images',
+    isExact: true,
+    title: pageTitlesEnum.IMAGES_EXPLORER,
+    color: '#F17922',
+    category: ExplorersCatsEnum.Trainings,
+  },
+  FIGURES_EXPLORER: {
+    path: PathEnum.Figures_Explorer,
+    component: FiguresExplorer,
+    showInSidebar: false,
+    icon: 'figures',
+    displayName: 'Figures',
+    description:
+      'Figures Explorer enables easy comparison of hundreds of Plotly figures.',
+    isExact: true,
+    title: pageTitlesEnum.FIGURES_EXPLORER,
+    color: '#18AB6D',
+    category: ExplorersCatsEnum.Trainings,
+  },
+  AUDIOS_EXPLORER: {
+    path: PathEnum.Audios_Explorer,
+    component: AudiosExplorer,
+    showInSidebar: false,
+    icon: 'audios',
+    displayName: 'Audios',
+    description:
+      'Audio Explorer enables analysis of audio objects in speech-to-text or other speech-related tasks.',
+    isExact: true,
+    title: pageTitlesEnum.AUDIOS_EXPLORER,
+    color: '#FCB500',
+    category: ExplorersCatsEnum.Trainings,
+  },
+};
+
+const routes: { [key: string]: any } = {
+  APPS: {
+    path: PathEnum.Apps,
+    component: Apps,
+    showInSidebar: true,
+    displayName: 'Apps',
+    icon: <IconBox color='#179299' />,
+    isExact: true,
+    title: pageTitlesEnum.APPS,
+  },
+  APP: {
+    path: PathEnum.App,
+    component: App,
+    showInSidebar: false,
+    displayName: 'App',
+    isExact: false,
+    title: pageTitlesEnum.APP,
+  },
+  EXPLORERS: {
+    path: PathEnum.Explorers,
+    component: Explorers,
+    showInSidebar: true,
+    displayName: 'Explorers',
+    icon: <IconChartDots color='#1473E6' />,
+    isExact: true,
+    title: pageTitlesEnum.EXPLORERS,
+  },
+  REPORTS: {
+    path: PathEnum.Reports,
+    component: Reports,
+    showInSidebar: true,
+    displayName: 'Reports',
+    icon: <IconFileAnalytics color='#5B329A' />,
+    isExact: true,
+    title: pageTitlesEnum.REPORTS,
+  },
+  REPORT: {
+    path: PathEnum.Report,
+    component: Report,
+    showInSidebar: false,
+    displayName: 'Report',
+    isExact: true,
+    title: pageTitlesEnum.REPORT,
+  },
+  REPORT_EDIT: {
+    path: PathEnum.Report_Edit,
+    component: Report,
+    showInSidebar: false,
+    displayName: 'Report',
+    isExact: true,
+    title: pageTitlesEnum.REPORT,
+  },
+  ...explorersRoutes,
+};
+
+export default routes;

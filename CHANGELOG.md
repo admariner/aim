@@ -1,19 +1,63 @@
 # Changelog
 
-## Unreleased 
+## 4.0.3 Oct 4, 2023
+
+- Move ML framework loggers under experiment_tracker app (alberttorosyan)
+
+
+## 4.0.2 Oct 3, 2023
+
+- Fix aim migrate command when list(float) with single value is tracked (alberttorosyan)
+- Remove dependency from unused packages (alberttorosyan)
+- Correct default value for context in run.py track (constd)
+
+## 4.0.1 Oct 3, 2023 (Yanked)
+
+
+## 4.0.0 Sep 27, 2023
 
 ### Enhancements
 
-- Revamp grouping popovers design in Base Explorers (KaroMourad, arsengit)
-- Add the ability to group by `grid` type in Base Explorers (KaroMourad)
-- Add the ability to create Reports (roubkar, arsengit)
-- Add the ability to create custom UI boards (roubkar, arsengit, KaroMourad)
-- Relocate aim explorers to `Explorers` page (arsengit)
+- Revamp Aim UI (roubkar, KaroMourad, arsengit)
+  - Explorers
+  - Apps
+  - Reports
+- Add UI components Python SDK (roubkar) 
+- Unify Aim Storage (mihran113)
+- Redesign Aim Tracking Server using websockets (mihran113)
+- Redesign Aim Python SDK (alberttorosyan)
+- Add ability to extend Aim via creating new apps, types and boards (alberttorosyan, roubkar)
+- Add the ability to track and visualize 3D figures (pabhermoso)
 - Add functionality for custom context in the PyTorch Ignite (tmynn)
+- Switch to patched version of official pynvml (mihran113)
+- Add ceph to file system list by (jennifer12121)
 
 ### Fixes
+- Replace invalid typing in run.py (mauricekraus)
+- Improve performance of dict flattening for board runs (donderom)
+- Search on <Enter> on Windows (jgiannuzzi)
 
--  Convert NaNs and Infs in responses to strings (n-gao)
+## 3.17.5 Jun 2, 2023
+
+- Fix gpu stat collection when driver is not loaded (mihran113)
+- Fix issue with overflowing box content in full-view mode in Base Explorers (KaroMourad)
+- Resolve tags list visibility issue in tags page (arsengit)
+- Fix issue on git stat collection (mihran113)
+- Import `Image` and `Audio` for `TensorboardFolderTracker` (alansaul)
+- Extend `aim.ext.tensorboard_tracker.run.Run` to allow stdout logging and system stats and parameter logging (alansaul)
+- Add the ability for `TensorboardFolderTracker` to track `Histogram`'s as Aim `Distribution`'s (alansaul)
+- Convert NaNs and Infs in responses to strings (n-gao)
+- Add activeloop deeplake plugin (drahnreb)
+
+## 3.17.4  May 4, 2023
+
+- Resolve run messages duplication issue for in progress runs (roubkar)
+- Fix metric values inconsistency with steps (mihran113)
+- Enable CLI for remote repos (mihran113)
+- Safe force-acquire index lock using meta-locks (alberttorosyan, mihran113)
+- Fix the issue with containers left open (mihran113)
+- Fix issue with notebook extension start-up (mihran113)
+- Disable SDK events tracking with Segment API (alberttorosyan)
 
 ## 3.17.3 Apr 6, 2023
 

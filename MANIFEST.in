@@ -1,5 +1,4 @@
-include README.md LICENSE aim/VERSION
-recursive-include aim/storage *.h *.hpp *.cpp *.cxx *.pxd *.pyx
-recursive-include aim/storage/migrations *
-recursive-include aim/web/migrations *
-
+include README.md LICENSE src/python/aim/VERSION
+recursive-include src/python/aim/_core/storage *.h *.hpp *.cpp *.cxx *.pxd *.pyx
+recursive-include src/aimcore/web/migrations *
+recursive-include pkgs/aimstack *.py
